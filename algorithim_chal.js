@@ -1,21 +1,11 @@
 var findSmallestDifference = function(arr) {
-    var differences = [];
-    arr.sort(function(a,b){return a - b});
-    for(a=0;a<arr.length;a++){
-        for(b=a+1;b<arr.length;b++){
-            differences[differences.length] = arr[b] - arr[a];
-        } 
+    var differences = [], i=0;
+    arr.sort(function(x,y){return x - y;});
+    while(i+1<arr.length){
+        differences[i] = arr[i+1] - arr[i];
+        if(differences[i] === 0){return 0;}
+        i++;
     }
-    var answer = (differences[0] + differences[1])
-    for (d=0;d<differences.length;d++){
-            if (differences[d] < differences[d+1]) {
-                    var bestOfTwo = differences[d]
-                    if (bestOfTwo < answer) {
-                        answer = bestOfTwo;
-                    }
-            }
-    }
-    return answer;
+    differences.sort(function(x,y){return x - y;});
+    return differences[0];
 };
-var result = findSmallestDifference([1829,10,100,1000,10000]);
-console.log(result);
