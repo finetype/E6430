@@ -1,21 +1,16 @@
 var decryptK = function (message){
     var messageArray = message.split(" "); var results = ""; var result = ""; var c = 0;
-    
     for (i=0;i<messageArray.length;i++) {        
-        
         if (messageArray[i].length > i){
             result = messageArray[i].charAt(i);
             results += result;
-        }
-            
+        } 
         else {
             for (b=i+1;messageArray[i].length <= i;b++) {
-                if (b == messageArray.length){return results};
-                
+                if (b == messageArray.length){return results};    
                 messageArray[i] = messageArray[i] + messageArray[b];
                 c++;
             }
-
             result = messageArray[i].charAt(i);
             results += result;
             i+=c;
@@ -29,8 +24,7 @@ var decryptK = function (message){
 
 var decryptC = function (message){
     var messageArray = message.split(" "); var results = ""; var result = ""; var c = 0;
-    
-    
+  
     for (i=0;i<messageArray.length;i++){
         if (i>0){console.log("index incremented at loop start");}
         console.log(" ")
